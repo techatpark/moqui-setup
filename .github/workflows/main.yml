@@ -25,3 +25,11 @@ jobs:
           cd moqui-framework
           ./gradlew build
           ls
+      - name: Deploy
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.MOQUI_HOST }}
+          username: ${{ secrets.MOQUI_USERNAME }}
+          password: ${{ secrets.MOQUI_PASSWORD }}
+          source: "gurukulam/moqui.war"
+          target: ${{ secrets.MOQUI_TARGET_DIR }}
