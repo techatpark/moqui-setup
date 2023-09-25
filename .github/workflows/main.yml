@@ -1,0 +1,27 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+# mvn clean jacoco:prepare-agent install jacoco:report
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 1
+      - name: Get Moqui and Build
+        run: |
+          git clone https://github.com/moqui/moqui-framework.git
+          cd moqui-framework
+          ./gradlew build
+          ls
