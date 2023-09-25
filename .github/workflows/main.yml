@@ -31,5 +31,5 @@ jobs:
           host: ${{ secrets.MOQUI_HOST }}
           username: ${{ secrets.MOQUI_USERNAME }}
           password: ${{ secrets.MOQUI_PASSWORD }}
-          source: "moqui.war"
+          source: "moqui-framework/moqui.war"
           target: ${{ secrets.MOQUI_TARGET_DIR }}
