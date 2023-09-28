@@ -21,7 +21,7 @@ jobs:
           java-version: 11
       - name: Get Moqui and Build
         run: |
-          git clone https://github.com/moqui/moqui-framework.git
+          git clone --branch deploy https://github.com/adityasharma7/moqui-framework.git
           cd moqui-framework
           ./gradlew build
           ls
